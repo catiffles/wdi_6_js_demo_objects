@@ -1,6 +1,6 @@
 ![General Assembly Logo](http://i.imgur.com/ke8USTq.png)
 
-## Object Oriented Javascript
+## Object Oriented Javascript TDD Style
 
 [Javascript Background](Background.md)
 
