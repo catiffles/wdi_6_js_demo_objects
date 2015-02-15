@@ -1,3 +1,5 @@
+![General Assembly Logo](http://i.imgur.com/ke8USTq.png)
+
 ## Object Oriented Javascript 
 
 [Javascript Background](Background.md)
@@ -42,19 +44,20 @@ _js/object_properties.js_
 // Using a Object Literal. Preferred                                                       
 var newObject = {};
 
-// ECMAScript 3 compatible approaches
 // 1. Dot syntax
 // Set properties
 var  newObject.someKey = "Hello World"; // Get properties
 var key = newObject.someKey;
 
 
-// 2. Square bracket syntax // Set properties
+// 2. Square bracket syntax. Avoid if possible.
+// Set properties.  
 newObject["someKey"] = "Hello World"; // Get properties
 var key = newObject["someKey"];
 
 
 // ECMAScript 5 only compatible approaches
+
 // 3. Object.defineProperty
 // Set properties
 Object.defineProperty( newObject, "someKey", {
@@ -75,7 +78,7 @@ Object.defineProperties( newObject, {
 ```
 ## Object Literals.
 
-And Object literal is the simplest way to create an object in javacript. It looks and behaves somewhat like a Ruby hash but has some key differences.
+And Object literal is the simplest way to create an object in javacript. It may look like a Hash. It is not a Hash.
 
 
 __Create a file js/simple.js with the below code and reference it from index.html.__
