@@ -25,7 +25,7 @@ But, it does provide a way to create structures that behave like classes. We'll 
 
 #### Two Ways to create a new Object
 
-_js/sam.js_
+Create a file __js/sponge_bob.js__ 
 
 ```
 // Create a new JS object to represent Sam.
@@ -62,7 +62,7 @@ console.log(sam["first car"]);
 
 ```
 
-** ECMAScript 5, ES5, added some features that give one more control over object properties.**
+**ECMAScript 5, ES5, added some features that give one more control over object properties.**
 
 ```
 
@@ -115,7 +115,7 @@ for(var p in sam){
 };
 ```
 
-** ES5 also allow one to create accessor functions for objects**
+**ES5 also allow one to create accessor functions for objects**
 
 ```
 // Accessor properties.
@@ -200,7 +200,7 @@ __Inspect joe and jill in Chrome.__
 
 ## Lab
 
-Let's give the Sponge Bob's charaters some behavior. Add method to these characters and log out what these are.
+Let's give the Sponge Bob's characters some behavior. Add methods to these characters and display their behavior.  
 
 ### Object Literals with properties that are objects.
 
@@ -290,7 +290,11 @@ console.log(joe.describe(false));
 
 ### Prototypical Inheritence
 
-Each object will have an internal ``__proto__`` property that can point to another object. An Object Literal's ``__proto_`` property will point to the [Object.prototype](http://goo.gl/C568wU) by default.
+Each object will have an internal ``__proto__`` property that can point to another object. Each object also has a prototype property. **These are NOT the same**.  
+
+The ``__proto__`` is a often hidden internal property on an object. *Most browsers will let you see it tho*. An Object Literal's ``__proto_`` property will point to the [Object.prototype](http://goo.gl/C568wU) property by default when the object is created.  
+
+This Object 'class' prototype object has a bunch of attributes and methods.
 
 An object's ``__proto__`` pointer will be used to lookup properties, _(values and methods)_. 
 
@@ -363,7 +367,7 @@ We will have to create lots of object literals and each time a property or metho
 For example, we want to change each person to have an occupation
 that is shown in the describe function?
 
-Use Object literals for instances that will exist only once, Singletons, in your application. For example, CarLot or RecordCompany.
+Use Object literals for instances that will exist only once, Singletons, in your application. For example,if you have only one  Company or Team in you app then create only one instance of it. 
 
 Later, we will see how to emulate a class in Javascript that will be used to creates instances, objects, of something.
 
@@ -399,48 +403,6 @@ var jill = new PersonApp('jill', 33);
 
 ```
 
-## LAB
-
-Implement "Honest Tom's Used Car Lot" using object literals. __Do all your work in the cars_object_literal branch__
-
-_The cars_object_literal_done branch has a completed version of this lab if you get stuck_.
-
-* Create a couple addresses in js/addresses.js. 
-	* Properties are street, city, state and country.  
-	* Methods are display. This returns a string.  	 
-* Create a couple of car makers in js/makers.js  
-	* Properties are name, established date and address (use one of the addresses created above for this property).  
-	* Methods are display. This returns a string.  
-
-* Create a couple of cars in js/cars.js 
-	* Properties are model, year, price and make (use one of the makes created above for this property).  
-	* Methods are display. This returns a string.  
-
-* Create One car lot in js/car_lot.js 
-	* Properties are name and an array of cars.
-	* Methods are:
-		* addCar(car). This will add a car to the lot.
-		* display. This returns a string. 
-		* totalValue. This return the total value of all the cars in the lot.
-
-* Log the cars in the lot to the chrome console usiing console.log.  
-* Log the totalValue of all the cars in the lot to the chrome console.
-
-_Note: you will have to create a cars.html that will use each of the above js files_
-
-```
- ...
- <body>
-      <h3>Car Lot</h3>
-      <script src='js/addresses.js'> </script>
-      <script src='js/makers.js'> </script>
-      <script src='js/cars.js'> </script>
-      <script src='js/car_lot.js'> </script>
-  </body>
- ... 
-```
- 
-
 ## Object Creation Patterns.
 
 The problem with Object Literals is that they can get very tedious. For example, if we have to create a new object literal for each Person and there are many people. 
@@ -465,7 +427,7 @@ The Factory Pattern will use a function to create object literals. The arguments
 
 ## LAB
 
-Redo the Car Lot Lab above using the Factory pattern. __Do all your work in the cars_factory_pattern branch__
+Redo the Sponge Bob code using the Factory pattern. 
 
 ## Demo
 
