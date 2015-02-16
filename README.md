@@ -39,7 +39,9 @@ var sam = {};
 
 #### Four ways that properties can be added.
 
-_js/object_properties.js_
+Create a file _js/sam.js_ . This will contain an Object literal for the person, sam.
+
+**The most common way to create properties.**
 
 ```
 // Create an object for Sam.
@@ -58,8 +60,11 @@ console.log(sam.message);
 sam["first car"] = "1999 Ford Focus";
 console.log(sam["first car"]);
 
-// ECMAScript 5, ES5, add some features for object
-// properites.
+```
+
+** ECMAScript 5, ES5, added some features that give one more control over object properties.**
+
+```
 
 // Object#defineProperty method
 Object.defineProperty(sam, "age", {
@@ -108,7 +113,11 @@ for(var p in sam){
   // show sam's properties
   console.log("sam." + p + " is " + p);
 };
+```
 
+** ES5 also allow one to create accessor functions for objects**
+
+```
 // Accessor properties.
 // Does sam hate snow
 Object.defineProperty(sam, "_hateSnow", {
@@ -124,7 +133,24 @@ console.log("Does sam hate snow? " + sam.hateSnow);
 sam.hateSnow = true;
 console.log("Does sam hate snow? " + sam.hateSnow);
 
+
 ```
+### Lab
+
+Create a file __js/sponge_bob.js__ 
+
+I've only watched SpongeBob a couple of times. And it's been fun. But, I don't know many characters, or much about them.
+
+Can each of you pick a couple of characters and create objects for them? Create simple properties for them, *no methods*. And use all four of the ways to create properties shown above.
+
+Each character should have a name, age, description and isLikable properties.
+
+Let's make Patrick's age property immutable.
+SpongeBob's likable property can NOT be enumerated.
+Nobody's name property can be deleted.
+
+At the end of the file display each character's properties.
+
 
 ## Object Literals.
 
@@ -171,6 +197,10 @@ An Object Literal:
 
 
 __Inspect joe and jill in Chrome.__
+
+## Lab
+
+Let's give the Sponge Bob's charaters some behavior. Add method to these characters and log out what these are.
 
 ### Object Literals with properties that are objects.
 
@@ -226,7 +256,9 @@ for(var prop in joe){
 
 __Inspect joe and jill in Chrome.__
 
+## Lab
 
+Let's give the Sponge Bob's characters a location property that is a object with an address, city and state. _Ya, I know, they don't really have addresses_. 
 
 ### Objects properties and methods can change anytime.
 
