@@ -25,57 +25,107 @@ But, it does provide a way to create structures that behave like classes. We'll 
 
 #### Two Ways to create a new Object
 
-_js/new_object.js_
+_js/sam.js_
 
 ```
+// Create a new JS object to represent Sam.
+
 // Using a Object constructor
-var newObject = new Object();
+var sam = new Object();
   
 // Using a Object Literal. Preferred
-var newObject = {};
+var sam = {};
 ```
 
 #### Four ways that properties can be added.
 
 _js/object_properties.js_
 
-
 ```
-// Using a Object Literal. Preferred                                                       
-var newObject = {};
+// Create an object for Sam.
+var sam = {
+  name: 'sam'
+};
 
-// 1. Dot syntax
-// Set properties
-var  newObject.someKey = "Hello World"; // Get properties
-var key = newObject.someKey;
+// Setting the message property
+sam.message = "Hello World";
+console.log(sam.message);
 
+// Setting the "first car" property
+// Use the bracket notation only if the property
+// name MUST be a value thats not allowed in the dot
+// notation. Rare!
+sam["first car"] = "1999 Ford Focus";
+console.log(sam["first car"]);
 
-// 2. Square bracket syntax. Avoid if possible.
-// Set properties.  
-newObject["someKey"] = "Hello World"; // Get properties
-var key = newObject["someKey"];
+// ECMAScript 5, ES5, add some features for object
+// properites.
 
-
-// ECMAScript 5 only compatible approaches
-
-// 3. Object.defineProperty
-// Set properties
-Object.defineProperty( newObject, "someKey", {
-  value: "for more control of the property's behavior", writable: true,
+// Object#defineProperty method
+Object.defineProperty(sam, "age", {
+  value: 27,
   enumerable: true,
+  writable: true,
   configurable: true
 });
+console.log("sam is " + sam.age + " yrs old");
 
+// Lets delete sam's age property
+delete sam.age;
+console.log(sam.age);
+// set configurable to false and run again.
+// configurable will prevent property deletion.
 
-// 4. Object.defineProperties // Set properties
-Object.defineProperties( newObject, {
-  "someKey": {
-    value: "Hello World", writable: true
-  },
-  "anotherKey": { value: "Foo bar", writable: false }
+// Lets change sam's age.
+sam.age += 1;
+console.log("sam is " + sam.age + " yrs old");
+// set writeable to false.
+// writeable prevents one from changing the the property value
+
+// show sam again
+console.log("\nShow all sam's properties");
+// let enumerate over sam's properties.
+for(var p in sam){
+  // show sam's properties
+  console.log("sam." + p + " is " + p);
+}
+// set enumerable to false
+// enumerable set to false will remove the property
+// from the set of properties that can be enumerated.
+
+// Object#defineProperties.
+// Change multiple properties at once.
+Object.defineProperties(sam,
+                        {
+                          gender: {value: 'male'},
+                          employed: {value: false}
+                        }
+                       );
+
+// show sam again
+console.log("\nsam after properties added");
+for(var p in sam){
+  // show sam's properties
+  console.log("sam." + p + " is " + p);
+};
+
+// Accessor properties.
+// Does sam hate snow
+Object.defineProperty(sam, "_hateSnow", {
+  get: function(){ return this._hateSnow; },
+  set: function(hate){
+    this._hateSnow;
+  }
 });
 
+sam.hateSnow = false;
+console.log("Does sam hate snow? " + sam.hateSnow);
+
+sam.hateSnow = true;
+console.log("Does sam hate snow? " + sam.hateSnow);
+
 ```
+
 ## Object Literals.
 
 And Object literal is the simplest way to create an object in javacript. It may look like a Hash. It is not a Hash.
